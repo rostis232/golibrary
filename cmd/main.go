@@ -10,11 +10,11 @@ import (
 
 func main(){
 	app := echo.New()
-	userHandler := handler.UserHandler{}
+	libraryHandler := handler.LibraryHandler{}
 	app.Use(middleware.Logger())
 	app.Use(middleware.Recover())
 	app.Static("/static", "./static")
-	app.GET("/user", userHandler.HandleUserShow)
+	app.GET("/library", libraryHandler.LibraryShow)
 	app.Start(":6061")
 
 	fmt.Println("working")

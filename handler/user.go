@@ -5,8 +5,8 @@ import (
 	"github.com/rostis232/golangjunior/view/user"
 )
 
-type UserHandler struct{}
+type LibraryHandler struct{}
 
-func(h UserHandler) HandleUserShow(c echo.Context) error{
+func(h LibraryHandler) LibraryShow(c echo.Context) error{
 	return render(c, user.Library())
 }
