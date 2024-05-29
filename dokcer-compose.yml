@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+
+  library:
+    build:
+      context: .
+      dockerfile: ./library.dockerfile
+    restart: always
+    ports:
+      - "6061:6061"
+    deploy:
+      mode: replicated
+      replicas: 1
