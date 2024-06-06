@@ -1,4 +1,4 @@
-module github.com/rostis232/golangjunior
+module github.com/rostis232/golibrary
 
 go 1.22.3
 
