@@ -8,7 +8,7 @@ COPY . /app
 
 WORKDIR /app
 
-RUN CGO_ENABLED=0 go build -o library ./cmd
+RUN CGO_ENABLED=0 go build -o library ./cmd/web
 
 RUN chmod +x ./library
 

@@ -6,9 +6,29 @@ services:
     build:
       context: .
       dockerfile: ./library.dockerfile
+    environment:
+      - PORT=80
+      - PG_HOST=postgres
+      - PG_PORT=5432
+      - PG_USER=${PG_USER}
+      - PG_PASS=${PG_PASS}
+      - PG_DB_NAME=${PG_DB_NAME}
     restart: always
     ports:
-      - "6061:6061"
+      - "${PORT}:80"
+    deploy:
+      mode: replicated
+      replicas: 1
+
+  postgres:
+    image: 'postgres:15'
+    ports:
+      - "${PG_PORT}:5432"
+    restart: always
+    environment:
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_PASSWORD: ${PG_PASS}
+      POSTGRES_DB: ${PG_DB_NAME}
     deploy:
       mode: replicated
       replicas: 1
