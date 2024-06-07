@@ -29,7 +29,7 @@ func NewApp(pgConfig string) (*App, error) {
 	a.Server.Use(middleware.Logger())
 	a.Server.Use(middleware.Recover())
 	a.Server.Static("/static", "./static")
-	a.Server.GET("/library", a.Handler.LibraryShow)
+	a.Server.GET("/", a.Handler.LibraryShow)
 	return &a, nil
 }
 

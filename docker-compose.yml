@@ -2,6 +2,19 @@ version: '3'
 
 services:
 
+  postgres:
+    image: 'postgres:15'
+    ports:
+      - "${PG_PORT}:5432"
+    restart: always
+    environment:
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_PASSWORD: ${PG_PASS}
+      POSTGRES_DB: ${PG_DB_NAME}
+    deploy:
+      mode: replicated
+      replicas: 1
+      
   library:
     build:
       context: .
@@ -16,19 +29,6 @@ services:
     restart: always
     ports:
       - "${PORT}:80"
-    deploy:
-      mode: replicated
-      replicas: 1
-
-  postgres:
-    image: 'postgres:15'
-    ports:
-      - "${PG_PORT}:5432"
-    restart: always
-    environment:
-      POSTGRES_USER: ${PG_USER}
-      POSTGRES_PASSWORD: ${PG_PASS}
-      POSTGRES_DB: ${PG_DB_NAME}
     deploy:
       mode: replicated
       replicas: 1

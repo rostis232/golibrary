@@ -46,7 +46,7 @@ func Sidebar() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" height=\"80px\" alt=\"Golang Бібліотека\"></div><div class=\"sidebar-brand-text mx-3\">Golang<br>Бібліотека</div></a><!-- Divider --><hr class=\"sidebar-divider my-0\"><!-- Nav Item - Dashboard --><li class=\"nav-item\"><a class=\"nav-link\" href=\"/\"><i class=\"fas fa-fw fa-home\"></i> <span>Головна</span></a></li><li class=\"nav-item\"><a class=\"nav-link\" href=\"/events\"><i class=\"fas fa-fw fa-book\"></i> <span>Бібліотека</span></a></li><hr class=\"sidebar-divider d-none d-md-block\"><!-- Sidebar Toggler (Sidebar) --><div class=\"text-center d-none d-md-inline\"><button class=\"rounded-circle border-0\" id=\"sidebarToggle\"></button></div></ul><!-- End of Sidebar -->")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" height=\"80px\" alt=\"Golang Бібліотека\"></div><div class=\"sidebar-brand-text mx-3\">Golang<br>Бібліотека</div></a><!-- Divider --><hr class=\"sidebar-divider my-0\"><!-- Nav Item - Dashboard --><li class=\"nav-item\"><a class=\"nav-link\" href=\"/\"><i class=\"fas fa-fw fa-home\"></i> <span>Головна</span></a></li><hr class=\"sidebar-divider d-none d-md-block\"><!-- Sidebar Toggler (Sidebar) --><div class=\"text-center d-none d-md-inline\"><button class=\"rounded-circle border-0\" id=\"sidebarToggle\"></button></div></ul><!-- End of Sidebar -->")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
