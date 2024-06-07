@@ -2,9 +2,12 @@
 
 GoLibrary is a web portal containing information about educational materials for Golang. The project uses the Echo framework and the Templ package for HTML page generation.
 
-## Requirements
+## Uses
 
 - Golang 1.22
+
+## Requirements
+
 - Docker
 - Docker Compose
 
@@ -23,7 +26,7 @@ GoLibrary is a web portal containing information about educational materials for
 
 ## Usage
 
-Once Docker Compose is up and running, the web portal will be available.
+The web portal will be available once Docker Compose is up and running.
 
 ## Contact
 
