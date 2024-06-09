@@ -1,6 +1,10 @@
 package models
 
-import "github.com/lib/pq"
+import (
+	"database/sql"
+
+	"github.com/lib/pq"
+)
 
 type LibraryItem struct{
 	ID int64 `db:"id"`
@@ -13,6 +17,7 @@ type LibraryItem struct{
 	Type int64 `db:"type"`
 	Difficulty int64 `db:"difficulty"`
 	Language pq.Int64Array `db:"language"`
+	User sql.NullInt64 `db:"user"`
 }
 
 type Type struct{
