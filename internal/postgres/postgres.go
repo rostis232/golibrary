@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	libraryItemTable = "library_item"
+	libraryTable = "library"
 )
 
 func NewPostgres(configDB string) (*sqlx.DB, error) {
