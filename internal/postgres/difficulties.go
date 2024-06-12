@@ -1,0 +1,17 @@
+package postgres
+
+import (
+	"fmt"
+
+	"github.com/rostis232/golibrary/models"
+)
+
+func(p *Postgres) getAllDifficulties()(map[int64]models.Difficulty, error){
+	diffMap := make(map[int64]models.Difficulty)
+	query := fmt.Sprintf("select * from %s", difficultyTable)
+	err := p.db.Select(&diffMap, query)
+	if err != nil {
+		return diffMap, fmt.Errorf("error occured in GetAllDifficulties %w", err)
+	}
+	return diffMap, nil
+}

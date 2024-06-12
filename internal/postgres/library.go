@@ -1,13 +1,17 @@
 package postgres
 
-import "github.com/jmoiron/sqlx"
+import (
+	"fmt"
 
-type Library struct{
-	db *sqlx.DB
+	"github.com/rostis232/golibrary/models"
+)
+
+func(p *Postgres) GetAllLibraryItems()([]models.LibraryItem, error){
+	items := []models.LibraryItem{}
+	query := fmt.Sprintf("select * from %s", libraryTable)
+	err := p.db.Select(&items, query)
+	if err != nil {
+		return items, fmt.Errorf("error occured in GetAllLibraryItems %w", err)
+	}
+	return items, nil
 }
-
-func NewLibrary(db *sqlx.DB) *Library {
-	return &Library{db: db}
-}
-
-func(l *Library) GetAllItems(){}
