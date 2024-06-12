@@ -35,7 +35,7 @@ func ShowLibrary(library []models.LibraryItem) templ.Component {
 				templ_7745c5c3_Buffer = templ.GetBuffer()
 				defer templ.ReleaseBuffer(templ_7745c5c3_Buffer)
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!-- Page Heading --> <h1 class=\"h3 mb-2 text-gray-800\">Бібліотека</h1><p class=\"mb-4\">Тут відображаються всі наявні в бібліотеці матеріали</p><div class=\"card shadow mb-4\"><div class=\"card-body\"><div class=\"table-responsive\"><table class=\"table table-bordered\" id=\"dataTable\" width=\"100%\" cellspacing=\"0\"><thead><tr><th>ID</th><th>Назва</th><th>Тип</th><th>Складність</th><th>Мова</th><th>Оцінка</th><th>Докладніше</th></tr></thead><tfoot><tr><th>ID</th><th>Назва</th><th>Тип</th><th>Складність</th><th>Мова</th><th>Оцінка</th><th>Докладніше</th></tr></tfoot><tbody>")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!-- Page Heading --> <h1 class=\"h3 mb-2 text-gray-800\">Бібліотека</h1><p class=\"mb-4\">Тут відображаються всі наявні в бібліотеці матеріали</p><div class=\"card shadow mb-4\"><div class=\"card-body\"><div class=\"table-responsive\"><table class=\"table table-bordered\" id=\"dataTable\" width=\"100%\" cellspacing=\"0\"><thead><tr><th>ID</th><th>Назва</th><th>Тип</th><th>Складність</th><th>Мова</th><th>Докладніше</th></tr></thead><tfoot><tr><th>ID</th><th>Назва</th><th>Тип</th><th>Складність</th><th>Мова</th><th>Докладніше</th></tr></tfoot><tbody>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -47,7 +47,7 @@ func ShowLibrary(library []models.LibraryItem) templ.Component {
 				var templ_7745c5c3_Var3 string
 				templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("%d", ind))
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/library/show.templ`, Line: 43, Col: 64}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/library.templ`, Line: 41, Col: 64}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 				if templ_7745c5c3_Err != nil {
@@ -60,13 +60,22 @@ func ShowLibrary(library []models.LibraryItem) templ.Component {
 				var templ_7745c5c3_Var4 string
 				templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(item.Title)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/library/show.templ`, Line: 44, Col: 52}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/library.templ`, Line: 42, Col: 52}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</td><td>Not Implemented</td><td>Not Implemented</td><td>Not Implemented</td><td>Not Implemented</td><td><a href=\"\" class=\"btn btn-info btn-icon-split btn-sm\"><span class=\"icon text-white-50\"><i class=\"fas fa-arrow-right\"></i></span> <span class=\"text\">Докладніше</span></a></td></tr>")
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</td><td>Not Implemented</td><td>Not Implemented</td><td>Not Implemented</td><td><a href=\"")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				var templ_7745c5c3_Var5 templ.SafeURL = templ.URL(item.URL)
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(string(templ_7745c5c3_Var5)))
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" target=\"blank\" class=\"btn btn-info btn-icon-split btn-sm\"><span class=\"icon text-white-50\"><i class=\"fas fa-arrow-right\"></i></span> <span class=\"text\">Докладніше</span></a></td></tr>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
