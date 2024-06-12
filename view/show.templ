@@ -1,8 +1,8 @@
-package library
-
-import "github.com/rostis232/golibrary/models"
+package view
 
 import (
+    "fmt"
+    "github.com/rostis232/golibrary/models"
     "github.com/rostis232/golibrary/view/layout"
     )
 
@@ -40,12 +40,12 @@ templ ShowLibrary(library []models.LibraryItem) {
                             <tbody>  
                             for ind, item := range library {
                                 <tr>
-                                    <td>ind</td>
-                                    <td>item.Title</td>
-                                    <td>item.Type</td>
-                                    <td>item.Difficulty</td>
-                                    <td>item.Language</td>
-                                    <td>5 з 5</td>
+                                    <td>{ fmt.Sprintf("%d", ind) }</td>
+                                    <td>{ item.Title }</td>
+                                    <td>Not Implemented</td>
+                                    <td>Not Implemented</td>
+                                    <td>Not Implemented</td>
+                                    <td>Not Implemented</td>
                                     <td>
                                         <a href="" class="btn btn-info btn-icon-split btn-sm">
                                             <span class="icon text-white-50">

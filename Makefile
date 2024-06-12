@@ -3,7 +3,7 @@ run:
 	go run cmd/web/main.go
 
 generate:
-	/home/rpylypiv/go/bin/templ generate
+	templ generate
 
 up:
 	docker-compose up

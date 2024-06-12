@@ -18,4 +18,6 @@ func NewService(repo Repository) *Service {
 	}
 }
 
-func(s *Service) GetAllLibraryItems()
+func(s *Service) GetAllLibraryItems() ([]models.LibraryItem, error) {
+	return s.Repo.GetAllLibraryItems()
+}
