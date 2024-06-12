@@ -27,9 +27,10 @@ func NewApp(pgConfig string) (*App, error) {
 	a.Server.Use(middleware.Recover())
 	a.Server.Static("/static", "./static")
 	a.Server.GET("/", a.Handler.LibraryShow)
+	echo.NotFoundHandler = a.Handler.NotFoundHandler
 	return &a, nil
 }
 
-func(a *App) Run(port string) error {
-	return a.Server.Start(":"+port)
+func (a *App) Run(port string) error {
+	return a.Server.Start(":" + port)
 }

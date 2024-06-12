@@ -1,0 +1,19 @@
+package errors
+
+import (
+    "github.com/rostis232/golibrary/view/layout"
+    )
+
+templ ShowNotFound() {
+    @layout.Base("Library") {
+        <div class="container-fluid">
+            <!-- 404 Error Text -->
+            <div class="text-center">
+                <div class="error mx-auto" data-text="404">404</div>
+                <p class="lead text-gray-800 mb-5">Сторінку не знайдено</p>
+                <p class="text-gray-500 mb-0">Схоже, ви знайшли збій у матриці...</p>
+                <a href="/">← Повернутись на головну</a>
+            </div>
+        </div>
+    }
+}
