@@ -8,11 +8,11 @@ type Service struct {
 	Repo Repository
 }
 
-type Repository interface{
+type Repository interface {
 	GetCachedTypes() map[int64]map[string]string
 	GetCachedLanguages() map[int64]map[string]string
 	GetCachedDifficulties() map[int64]map[string]string
-	GetAllLibraryItems()([]models.LibraryItem, error)
+	GetAllLibraryItems() ([]models.LibraryItem, error)
 }
 
 func NewService(repo Repository) *Service {
@@ -21,19 +21,18 @@ func NewService(repo Repository) *Service {
 	}
 }
 
-func(s *Service) GetAllLibraryItems() ([]models.LibraryItem, error) {
+func (s *Service) GetAllLibraryItems() ([]models.LibraryItem, error) {
 	return s.Repo.GetAllLibraryItems()
 }
 
-func(s *Service) GetCachedTypes() map[int64]map[string]string {
+func (s *Service) GetCachedTypes() map[int64]map[string]string {
 	return s.Repo.GetCachedTypes()
 }
 
-func(s *Service) GetCachedDifficulties() map[int64]map[string]string {
+func (s *Service) GetCachedDifficulties() map[int64]map[string]string {
 	return s.Repo.GetCachedDifficulties()
-} 
+}
 
-
-func(s *Service) GetCachedLanguages() map[int64]map[string]string {
+func (s *Service) GetCachedLanguages() map[int64]map[string]string {
 	return s.Repo.GetCachedLanguages()
-} 
+}

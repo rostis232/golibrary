@@ -6,7 +6,7 @@ import (
 	"github.com/rostis232/golibrary/models"
 )
 
-func(p *Postgres) GetAllLibraryItems()([]models.LibraryItem, error){
+func (p *Postgres) GetAllLibraryItems() ([]models.LibraryItem, error) {
 	items := []models.LibraryItem{}
 	query := fmt.Sprintf("select * from %s", libraryTable)
 	err := p.db.Select(&items, query)

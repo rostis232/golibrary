@@ -5,7 +5,7 @@ import (
 	"github.com/rostis232/golibrary/view"
 )
 
-func(h Handler) LibraryShow(c echo.Context) error {
+func (h Handler) LibraryShow(c echo.Context) error {
 	items, err := h.Service.GetAllLibraryItems()
 	if err != nil {
 		return err

@@ -6,7 +6,7 @@ import (
 	"github.com/rostis232/golibrary/models"
 )
 
-func(p *Postgres) getAllTypes()(map[int64]models.Type, error){
+func (p *Postgres) getAllTypes() (map[int64]models.Type, error) {
 	typesMap := make(map[int64]models.Type)
 	types := []models.Type{}
 	query := fmt.Sprintf("select * from %s", typeTable)

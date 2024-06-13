@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func(p *Postgres) UpdateCachedTypes() error {
+func (p *Postgres) UpdateCachedTypes() error {
 	typesMap := map[int64]map[string]string{}
 	types, err := p.getAllTypes()
 	if err != nil {
@@ -20,13 +20,13 @@ func(p *Postgres) UpdateCachedTypes() error {
 	return nil
 }
 
-func(p *Postgres) UpdateCachedLanguages() error {
+func (p *Postgres) UpdateCachedLanguages() error {
 	languagesMap := map[int64]map[string]string{}
 	languages, err := p.getAllLanguages()
 	if err != nil {
 		return fmt.Errorf("error getting cache for languages: %w", err)
 	}
-	for _, l := range languages{
+	for _, l := range languages {
 		languageMap := map[string]string{}
 		languageMap["UK"] = l.TitleUK
 		languageMap["EN"] = l.TitleEN
@@ -36,13 +36,13 @@ func(p *Postgres) UpdateCachedLanguages() error {
 	return nil
 }
 
-func(p *Postgres) UpdateCachedDifficulties() error {
+func (p *Postgres) UpdateCachedDifficulties() error {
 	difficultiesMap := map[int64]map[string]string{}
 	difficulties, err := p.getAllDifficulties()
 	if err != nil {
 		return fmt.Errorf("error getting cache for difficulties: %w", err)
 	}
-	for _, d := range difficulties{
+	for _, d := range difficulties {
 		difficultyMap := map[string]string{}
 		difficultyMap["UK"] = d.TitleUK
 		difficultyMap["EN"] = d.TitleEN
@@ -52,7 +52,7 @@ func(p *Postgres) UpdateCachedDifficulties() error {
 	return nil
 }
 
-func(p *Postgres) InitCache() error {
+func (p *Postgres) InitCache() error {
 	if err := p.UpdateCachedDifficulties(); err != nil {
 		return err
 	}
@@ -65,14 +65,14 @@ func(p *Postgres) InitCache() error {
 	return nil
 }
 
-func(p *Postgres) GetCachedTypes() map[int64]map[string]string {
+func (p *Postgres) GetCachedTypes() map[int64]map[string]string {
 	return p.CachedTypes
 }
 
-func(p *Postgres) GetCachedLanguages() map[int64]map[string]string {
+func (p *Postgres) GetCachedLanguages() map[int64]map[string]string {
 	return p.CachedLanguages
 }
 
-func(p *Postgres) GetCachedDifficulties() map[int64]map[string]string {
+func (p *Postgres) GetCachedDifficulties() map[int64]map[string]string {
 	return p.CachedDifficulties
 }

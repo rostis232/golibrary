@@ -6,16 +6,16 @@ import (
 )
 
 const (
-	libraryTable = "library_item"
-	languageTable = "language"
+	libraryTable    = "library_item"
+	languageTable   = "language"
 	difficultyTable = "difficulty"
-	typeTable = "type"
+	typeTable       = "type"
 )
 
 type Postgres struct {
-	db *sqlx.DB
-	CachedTypes map[int64]map[string]string
-	CachedLanguages map[int64]map[string]string
+	db                 *sqlx.DB
+	CachedTypes        map[int64]map[string]string
+	CachedLanguages    map[int64]map[string]string
 	CachedDifficulties map[int64]map[string]string
 }
 
@@ -30,7 +30,7 @@ func NewPostgres(configDB string) (*Postgres, error) {
 		return nil, err
 	}
 
-	p := Postgres{db:db}
+	p := Postgres{db: db}
 
 	err = p.InitCache()
 	if err != nil {

@@ -20,7 +20,7 @@ func main() {
 	}
 }
 
-func pgConfig() (string) {
+func pgConfig() string {
 	pgHost := os.Getenv("PG_HOST")
 	pgPort := os.Getenv("PG_PORT")
 	pgUser := os.Getenv("PG_USER")

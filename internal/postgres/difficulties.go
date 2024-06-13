@@ -6,7 +6,7 @@ import (
 	"github.com/rostis232/golibrary/models"
 )
 
-func(p *Postgres) getAllDifficulties()(map[int64]models.Difficulty, error){
+func (p *Postgres) getAllDifficulties() (map[int64]models.Difficulty, error) {
 	diffMap := make(map[int64]models.Difficulty)
 	difficulties := []models.Difficulty{}
 	query := fmt.Sprintf("select * from %s", difficultyTable)

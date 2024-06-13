@@ -6,7 +6,7 @@ import (
 	"github.com/rostis232/golibrary/models"
 )
 
-func(p *Postgres) getAllLanguages()(map[int64]models.Language, error){
+func (p *Postgres) getAllLanguages() (map[int64]models.Language, error) {
 	langMap := make(map[int64]models.Language)
 	languages := []models.Language{}
 	query := fmt.Sprintf("select * from %s", languageTable)

@@ -9,7 +9,7 @@ import (
 )
 
 type App struct {
-	Server *echo.Echo
+	Server  *echo.Echo
 	Handler *handler.Handler
 	Service *service.Service
 }
