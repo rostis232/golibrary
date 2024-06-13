@@ -6,7 +6,7 @@ import (
     "github.com/rostis232/golibrary/view/layout"
     )
 
-templ ShowLibrary(library []models.LibraryItem) {
+templ ShowLibrary(library []models.LibraryItem, typesMap map[int64]map[string]string, difficultiesMap map[int64]map[string]string, languagesMap map[int64]map[string]string) {
     @layout.Base("Library") {
         <!-- Page Heading -->
         <h1 class="h3 mb-2 text-gray-800">Бібліотека</h1>
@@ -38,11 +38,15 @@ templ ShowLibrary(library []models.LibraryItem) {
                             <tbody>  
                             for ind, item := range library {
                                 <tr>
-                                    <td>{ fmt.Sprintf("%d", ind) }</td>
+                                    <td>{ fmt.Sprintf("%d", ind + 1) }</td>
                                     <td>{ item.Title }</td>
-                                    <td>Not Implemented</td>
-                                    <td>Not Implemented</td>
-                                    <td>Not Implemented</td>
+                                    <td>{ typesMap[item.Type]["UK"] }</td>
+                                    <td>{ difficultiesMap[item.Difficulty]["UK"] }</td>
+                                    <td>
+                                    for _, l := range item.Language {
+                                        { languagesMap[l]["UK"]+" " }
+                                    }
+                                    </td>
                                     <td>
                                         <a href={ templ.URL(item.URL) } target="blank" class="btn btn-info btn-icon-split btn-sm">
                                             <span class="icon text-white-50">

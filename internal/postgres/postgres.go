@@ -3,7 +3,6 @@ package postgres
 import (
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
-	"github.com/rostis232/golibrary/models"
 )
 
 const (
@@ -15,9 +14,9 @@ const (
 
 type Postgres struct {
 	db *sqlx.DB
-	CachedTypes map[int64]models.Type
-	CachedLanguages map[int64]models.Language
-	CachedDifficulties map[int64]models.Difficulty
+	CachedTypes map[int64]map[string]string
+	CachedLanguages map[int64]map[string]string
+	CachedDifficulties map[int64]map[string]string
 }
 
 func NewPostgres(configDB string) (*Postgres, error) {

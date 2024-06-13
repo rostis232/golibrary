@@ -7,6 +7,9 @@ type Handler struct {
 }
 
 type Service interface{
+	GetCachedTypes() map[int64]map[string]string
+	GetCachedLanguages() map[int64]map[string]string
+	GetCachedDifficulties() map[int64]map[string]string
 	GetAllLibraryItems() ([]models.LibraryItem, error)
 }
 

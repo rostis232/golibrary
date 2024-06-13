@@ -10,5 +10,8 @@ func(h Handler) LibraryShow(c echo.Context) error {
 	if err != nil {
 		return err
 	}
-	return render(c, view.ShowLibrary(items))
+	types := h.Service.GetCachedTypes()
+	diff := h.Service.GetCachedDifficulties()
+	lang := h.Service.GetCachedLanguages()
+	return render(c, view.ShowLibrary(items, types, diff, lang))
 }
