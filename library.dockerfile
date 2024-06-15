@@ -22,6 +22,7 @@ FROM alpine:latest
 RUN mkdir /app
 
 COPY --from=builder /app /app
+#add go tools binares
 COPY --from=builder /go/bin/migrate /app/migrate
 COPY --from=builder /go/bin/templ /app/templ
 
