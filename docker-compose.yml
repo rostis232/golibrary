@@ -1,7 +1,6 @@
 version: '3'
 
 services:
-
   postgres:
     image: 'postgres:15'
     ports:
@@ -14,7 +13,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      
+    networks:
+      - app
+
   library:
     build:
       context: .
@@ -22,13 +23,22 @@ services:
     environment:
       - PORT=80
       - PG_HOST=postgres
-      - PG_PORT=5432
+      - PG_PORT=${PG_PORT}
       - PG_USER=${PG_USER}
       - PG_PASS=${PG_PASS}
       - PG_DB_NAME=${PG_DB_NAME}
     restart: always
+    networks:
+      - app
     ports:
       - "${PORT}:80"
     deploy:
       mode: replicated
       replicas: 1
+    depends_on:
+      - postgres
+    entrypoint: [ "/bin/sh", "/app/entrypoint.sh" ]
+
+networks:
+  app:
+

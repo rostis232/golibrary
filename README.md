@@ -14,15 +14,30 @@ GoLibrary is a web portal containing information about educational materials for
 ## Installation
 
 1. Clone this repository:
-    ```sh
-    git clone https://github.com/yourusername/GoLibrary.git
-    cd GoLibrary
-    ```
 
-2. Start Docker Compose:
-    ```sh
-    docker-compose up --build
-    ```
+   ```sh
+   git clone https://github.com/yourusername/GoLibrary.git
+   cd GoLibrary
+   ```
+
+2. Rename the file .env.example to .env
+
+   ```sh
+   mv .env.example .env
+   ```
+
+3. Fill in the environment variables:
+   ```
+   PG_PORT=
+   PG_PASS=
+   PG_USER=
+   PG_DB_NAME=
+   PORT=
+   ```
+4. Start Docker Compose:
+   ```sh
+   docker-compose up --build
+   ```
 
 ## Usage
 
@@ -37,4 +52,3 @@ The web portal will be available once Docker Compose is up and running.
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
-
