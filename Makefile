@@ -1,9 +1,14 @@
-run:
-	/home/rpylypiv/go/bin/templ generate
-	go run cmd/web/main.go
+#!/usr/bin/make
+
+IN_APP=docker-compose exec library
+
+run: generate run_app
 
 generate:
-	templ generate
+	$(IN_APP) /app/templ generate
+
+run_app:
+	$(IN_APP) /app/library
 
 up:
 	docker-compose up
