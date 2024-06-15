@@ -16,8 +16,8 @@ GoLibrary is a web portal containing information about educational materials for
 1. Clone this repository:
 
    ```sh
-   git clone https://github.com/yourusername/GoLibrary.git
-   cd GoLibrary
+   git clone https://github.com/rostis232/golibrary.git
+   cd golibrary
    ```
 
 2. Rename the file .env.example to .env
