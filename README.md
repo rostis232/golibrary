@@ -20,7 +20,7 @@ GoLibrary is a web portal containing information about educational materials for
    cd GoLibrary
    ```
 
-2. Rename the file .env.example to .envЖ
+2. Rename the file .env.example to .env
 
    ```sh
    mv .env.example .env
