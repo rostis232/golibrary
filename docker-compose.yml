@@ -23,7 +23,7 @@ services:
     environment:
       - PORT=80
       - PG_HOST=postgres
-      - PG_PORT=${PG_PORT}
+      - PG_PORT=5432
       - PG_USER=${PG_USER}
       - PG_PASS=${PG_PASS}
       - PG_DB_NAME=${PG_DB_NAME}
