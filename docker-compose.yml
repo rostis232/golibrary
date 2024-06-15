@@ -10,12 +10,15 @@ services:
       POSTGRES_USER: ${PG_USER}
       POSTGRES_PASSWORD: ${PG_PASS}
       POSTGRES_DB: ${PG_DB_NAME}
+      PGDATA: /var/lib/postgresql/data/pgdata  # Зберігає дані в нестандартному каталозі, щоб уникнути конфліктів
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
     deploy:
       mode: replicated
       replicas: 1
     networks:
       - app
-      
+
   library:
     build:
       context: .
@@ -23,7 +26,7 @@ services:
     environment:
       - PORT=80
       - PG_HOST=postgres
-      - PG_PORT=5432
+      - PG_PORT=${PG_PORT}
       - PG_USER=${PG_USER}
       - PG_PASS=${PG_PASS}
       - PG_DB_NAME=${PG_DB_NAME}
@@ -38,5 +41,9 @@ services:
     depends_on:
       - postgres
     entrypoint: ["/bin/sh", "/app/entrypoint.sh"]
+
 networks:
   app:
+
+volumes:
+  postgres-data:
