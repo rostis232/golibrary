@@ -6,11 +6,11 @@ import (
     "github.com/rostis232/golibrary/view/layout"
     )
 
-templ ShowLibrary(library []models.LibraryItem, typesMap map[int64]map[string]string, difficultiesMap map[int64]map[string]string, languagesMap map[int64]map[string]string) {
+templ ShowLibrary(library []models.LibraryItem, typesMap map[int64]string, difficultiesMap map[int64]string, languagesMap map[int64]string) {
     @layout.Base("Library") {
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Бібліотека</h1>
-        <p class="mb-4">Тут відображаються всі наявні в бібліотеці матеріали</p>
+        <h1 class="h3 mb-2 text-gray-800">Library</h1>
+        <p class="mb-4">All the materials in the library are displayed here</p>
             <div class="card shadow mb-4">
                 <div class="card-body">
                     <div class="table-responsive">
@@ -18,21 +18,21 @@ templ ShowLibrary(library []models.LibraryItem, typesMap map[int64]map[string]st
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Назва</th>
-                                    <th>Тип</th>
-                                    <th>Складність</th>
-                                    <th>Мова</th>
-                                    <th>Докладніше</th>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Difficulty</th>
+                                    <th>Language</th>
+                                    <th>More</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Назва</th>
-                                    <th>Тип</th>
-                                    <th>Складність</th>
-                                    <th>Мова</th>
-                                    <th>Докладніше</th>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Difficulty</th>
+                                    <th>Language</th>
+                                    <th>More</th>
                                 </tr>
                             </tfoot>
                             <tbody>  
@@ -40,11 +40,11 @@ templ ShowLibrary(library []models.LibraryItem, typesMap map[int64]map[string]st
                                 <tr>
                                     <td>{ fmt.Sprintf("%d", ind + 1) }</td>
                                     <td>{ item.Title }</td>
-                                    <td>{ typesMap[item.Type]["UK"] }</td>
-                                    <td>{ difficultiesMap[item.Difficulty]["UK"] }</td>
+                                    <td>{ typesMap[item.Type] }</td>
+                                    <td>{ difficultiesMap[item.Difficulty] }</td>
                                     <td>
                                     for _, l := range item.Language {
-                                        { languagesMap[l]["UK"]+" " }
+                                        { languagesMap[l]+" " }
                                     }
                                     </td>
                                     <td>
@@ -52,7 +52,7 @@ templ ShowLibrary(library []models.LibraryItem, typesMap map[int64]map[string]st
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-arrow-right"></i>
                                             </span>
-                                            <span class="text">Докладніше</span>
+                                            <span class="text">More</span>
                                         </a>
                                     </td>
                                 </tr>

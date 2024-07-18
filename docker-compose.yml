@@ -37,7 +37,6 @@ services:
       replicas: 1
     depends_on:
       - postgres
-    entrypoint: [ "/bin/sh", "/app/entrypoint.sh" ]
 
 networks:
   app:
