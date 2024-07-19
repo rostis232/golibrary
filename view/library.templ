@@ -11,56 +11,56 @@ templ ShowLibrary(library []models.LibraryItem, typesMap map[int64]string, diffi
         <!-- Page Heading -->
         <h1 class="h3 mb-2 text-gray-800">Library</h1>
         <p class="mb-4">All the materials in the library are displayed here</p>
-            <div class="card shadow mb-4">
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Type</th>
-                                    <th>Difficulty</th>
-                                    <th>Language</th>
-                                    <th>More</th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Type</th>
-                                    <th>Difficulty</th>
-                                    <th>Language</th>
-                                    <th>More</th>
-                                </tr>
-                            </tfoot>
-                            <tbody>  
-                            for ind, item := range library {
-                                <tr>
-                                    <td>{ fmt.Sprintf("%d", ind + 1) }</td>
-                                    <td>{ item.Title }</td>
-                                    <td>{ typesMap[item.Type] }</td>
-                                    <td>{ difficultiesMap[item.Difficulty] }</td>
-                                    <td>
-                                    for _, l := range item.Language {
-                                        { languagesMap[l]+" " }
-                                    }
-                                    </td>
-                                    <td>
-                                        <a href={ templ.URL(item.URL) } target="blank" class="btn btn-info btn-icon-split btn-sm">
-                                            <span class="icon text-white-50">
-                                                <i class="fas fa-arrow-right"></i>
-                                            </span>
-                                            <span class="text">More</span>
-                                        </a>
-                                    </td>
-                                </tr>
-                            }    
-                            </tbody>
-                        </table>
-                    </div>
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Difficulty</th>
+                                <th>Language</th>
+                                <th>Link</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Difficulty</th>
+                                <th>Language</th>
+                                <th>Link</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                        for ind, item := range library {
+                            <tr>
+                                <td>{ fmt.Sprintf("%d", ind + 1) }</td>
+                                <td>{ item.Title }</td>
+                                <td>{ typesMap[item.Type] }</td>
+                                <td>{ difficultiesMap[item.Difficulty] }</td>
+                                <td>
+                                for _, l := range item.Language {
+                                    { languagesMap[l]+" " }
+                                }
+                                </td>
+                                <td>
+                                    <a href={ templ.URL(item.URL) } target="blank" class="btn btn-info btn-icon-split btn-sm">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-arrow-right"></i>
+                                        </span>
+                                        <span class="text">Go</span>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
                 </div>
             </div>
+        </div>
     }
 }

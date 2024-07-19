@@ -44,7 +44,7 @@ func ShowLibrary(library []models.LibraryItem, typesMap map[int64]string, diffic
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!-- Page Heading --> <h1 class=\"h3 mb-2 text-gray-800\">Library</h1><p class=\"mb-4\">All the materials in the library are displayed here</p><div class=\"card shadow mb-4\"><div class=\"card-body\"><div class=\"table-responsive\"><table class=\"table table-bordered\" id=\"dataTable\" width=\"100%\" cellspacing=\"0\"><thead><tr><th>ID</th><th>Name</th><th>Type</th><th>Difficulty</th><th>Language</th><th>More</th></tr></thead><tfoot><tr><th>ID</th><th>Name</th><th>Type</th><th>Difficulty</th><th>Language</th><th>More</th></tr></tfoot><tbody>")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!-- Page Heading --> <h1 class=\"h3 mb-2 text-gray-800\">Library</h1><p class=\"mb-4\">All the materials in the library are displayed here</p><div class=\"card shadow mb-4\"><div class=\"card-body\"><div class=\"table-responsive\"><table class=\"table table-bordered\" id=\"dataTable\" width=\"100%\" cellspacing=\"0\"><thead><tr><th>ID</th><th>Name</th><th>Type</th><th>Difficulty</th><th>Language</th><th>Link</th></tr></thead><tfoot><tr><th>ID</th><th>Name</th><th>Type</th><th>Difficulty</th><th>Language</th><th>Link</th></tr></tfoot><tbody>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -56,7 +56,7 @@ func ShowLibrary(library []models.LibraryItem, typesMap map[int64]string, diffic
 				var templ_7745c5c3_Var3 string
 				templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("%d", ind+1))
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/library.templ`, Line: 41, Col: 68}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/library.templ`, Line: 41, Col: 64}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 				if templ_7745c5c3_Err != nil {
@@ -69,7 +69,7 @@ func ShowLibrary(library []models.LibraryItem, typesMap map[int64]string, diffic
 				var templ_7745c5c3_Var4 string
 				templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(item.Title)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/library.templ`, Line: 42, Col: 52}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/library.templ`, Line: 42, Col: 48}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 				if templ_7745c5c3_Err != nil {
@@ -82,7 +82,7 @@ func ShowLibrary(library []models.LibraryItem, typesMap map[int64]string, diffic
 				var templ_7745c5c3_Var5 string
 				templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(typesMap[item.Type])
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/library.templ`, Line: 43, Col: 61}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/library.templ`, Line: 43, Col: 57}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 				if templ_7745c5c3_Err != nil {
@@ -95,7 +95,7 @@ func ShowLibrary(library []models.LibraryItem, typesMap map[int64]string, diffic
 				var templ_7745c5c3_Var6 string
 				templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(difficultiesMap[item.Difficulty])
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/library.templ`, Line: 44, Col: 74}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/library.templ`, Line: 44, Col: 70}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 				if templ_7745c5c3_Err != nil {
@@ -109,7 +109,7 @@ func ShowLibrary(library []models.LibraryItem, typesMap map[int64]string, diffic
 					var templ_7745c5c3_Var7 string
 					templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(languagesMap[l] + " ")
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/library.templ`, Line: 47, Col: 61}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/library.templ`, Line: 47, Col: 57}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 					if templ_7745c5c3_Err != nil {
@@ -125,7 +125,7 @@ func ShowLibrary(library []models.LibraryItem, typesMap map[int64]string, diffic
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" target=\"blank\" class=\"btn btn-info btn-icon-split btn-sm\"><span class=\"icon text-white-50\"><i class=\"fas fa-arrow-right\"></i></span> <span class=\"text\">More</span></a></td></tr>")
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" target=\"blank\" class=\"btn btn-info btn-icon-split btn-sm\"><span class=\"icon text-white-50\"><i class=\"fas fa-arrow-right\"></i></span> <span class=\"text\">Go</span></a></td></tr>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
