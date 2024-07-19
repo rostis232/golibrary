@@ -9,7 +9,6 @@ import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
 import (
-	"fmt"
 	"github.com/rostis232/golibrary/models"
 	"github.com/rostis232/golibrary/view/layout"
 )
@@ -44,19 +43,19 @@ func ShowLibrary(library []models.LibraryItem, typesMap map[int64]string, diffic
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!-- Page Heading --> <h1 class=\"h3 mb-2 text-gray-800\">Library</h1><p class=\"mb-4\">All the materials in the library are displayed here</p><div class=\"card shadow mb-4\"><div class=\"card-body\"><div class=\"table-responsive\"><table class=\"table table-bordered\" id=\"dataTable\" width=\"100%\" cellspacing=\"0\"><thead><tr><th>ID</th><th>Name</th><th>Type</th><th>Difficulty</th><th>Language</th><th>Link</th></tr></thead><tfoot><tr><th>ID</th><th>Name</th><th>Type</th><th>Difficulty</th><th>Language</th><th>Link</th></tr></tfoot><tbody>")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!-- Page Heading --> <h1 class=\"h3 mb-2 text-gray-800\">Library</h1><p class=\"mb-4\">All the materials in the library are displayed here</p><div class=\"card shadow mb-4\"><div class=\"card-body\"><div class=\"table-responsive\"><table class=\"table table-bordered\" id=\"dataTable\" width=\"100%\" cellspacing=\"0\"><thead><tr><th>Name</th><th>Type</th><th>Difficulty</th><th>Description</th><th>Language</th><th>Link</th></tr></thead><tfoot><tr><th>Name</th><th>Type</th><th>Difficulty</th><th>Description</th><th>Language</th><th>Link</th></tr></tfoot><tbody>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			for ind, item := range library {
+			for _, item := range library {
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<tr><td>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 				var templ_7745c5c3_Var3 string
-				templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("%d", ind+1))
+				templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(item.Title)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/library.templ`, Line: 41, Col: 64}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/library.templ`, Line: 40, Col: 48}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 				if templ_7745c5c3_Err != nil {
@@ -67,9 +66,9 @@ func ShowLibrary(library []models.LibraryItem, typesMap map[int64]string, diffic
 					return templ_7745c5c3_Err
 				}
 				var templ_7745c5c3_Var4 string
-				templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(item.Title)
+				templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(typesMap[item.Type])
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/library.templ`, Line: 42, Col: 48}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/library.templ`, Line: 41, Col: 57}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 				if templ_7745c5c3_Err != nil {
@@ -80,9 +79,9 @@ func ShowLibrary(library []models.LibraryItem, typesMap map[int64]string, diffic
 					return templ_7745c5c3_Err
 				}
 				var templ_7745c5c3_Var5 string
-				templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(typesMap[item.Type])
+				templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(difficultiesMap[item.Difficulty])
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/library.templ`, Line: 43, Col: 57}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/library.templ`, Line: 42, Col: 70}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 				if templ_7745c5c3_Err != nil {
@@ -93,9 +92,9 @@ func ShowLibrary(library []models.LibraryItem, typesMap map[int64]string, diffic
 					return templ_7745c5c3_Err
 				}
 				var templ_7745c5c3_Var6 string
-				templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(difficultiesMap[item.Difficulty])
+				templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(item.ShortDesc)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/library.templ`, Line: 44, Col: 70}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/library.templ`, Line: 43, Col: 52}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 				if templ_7745c5c3_Err != nil {
@@ -109,7 +108,7 @@ func ShowLibrary(library []models.LibraryItem, typesMap map[int64]string, diffic
 					var templ_7745c5c3_Var7 string
 					templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(languagesMap[l] + " ")
 					if templ_7745c5c3_Err != nil {
-						return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/library.templ`, Line: 47, Col: 57}
+						return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/library.templ`, Line: 46, Col: 57}
 					}
 					_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 					if templ_7745c5c3_Err != nil {

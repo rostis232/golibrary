@@ -1,7 +1,6 @@
 package view
 
 import (
-    "fmt"
     "github.com/rostis232/golibrary/models"
     "github.com/rostis232/golibrary/view/layout"
     )
@@ -17,31 +16,31 @@ templ ShowLibrary(library []models.LibraryItem, typesMap map[int64]string, diffi
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>ID</th>
                                 <th>Name</th>
                                 <th>Type</th>
                                 <th>Difficulty</th>
+                                <th>Description</th>
                                 <th>Language</th>
                                 <th>Link</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>ID</th>
                                 <th>Name</th>
                                 <th>Type</th>
                                 <th>Difficulty</th>
+                                <th>Description</th>
                                 <th>Language</th>
                                 <th>Link</th>
                             </tr>
                         </tfoot>
                         <tbody>
-                        for ind, item := range library {
+                        for _, item := range library {
                             <tr>
-                                <td>{ fmt.Sprintf("%d", ind + 1) }</td>
                                 <td>{ item.Title }</td>
                                 <td>{ typesMap[item.Type] }</td>
                                 <td>{ difficultiesMap[item.Difficulty] }</td>
+                                <td>{ item.ShortDesc }</td>
                                 <td>
                                 for _, l := range item.Language {
                                     { languagesMap[l]+" " }
