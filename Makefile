@@ -1,17 +1,16 @@
-#!/usr/bin/make
-
-IN_APP=docker-compose exec library
-
-run: generate run_app
-
-generate:
-	$(IN_APP) /app/templ generate
-
-run_app:
-	$(IN_APP) /app/library
-
 up:
-	docker-compose up
+	@echo "Starting Docker images..."
+	docker-compose up -d
+	@echo "All Docker images are started"
 
 up_build:
-	docker-compose up --build
+	@echo "Building and starting Docker images..."
+	docker-compose up --build -d
+	@echo "All Docker images are started"
+
+down:
+	@echo "Stopping docker compose..."
+	docker-compose down
+	@echo "Done!"
+
+restart: down up
